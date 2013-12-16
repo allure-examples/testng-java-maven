@@ -41,4 +41,14 @@ public class SimpleTest {
         assertThat(2, is(2));
         makeAttach();
     }
+
+    @Test
+    public void simpleFailedTest() {
+        assertThat(2, is(3));
+    }
+
+    @Test(dependsOnMethods = { "simpleFailedTest" })
+    public void simpleSkippedTest() {
+        // do nothing, it doesn't matter, cause this test should be skipped anyway
+    }
 }
