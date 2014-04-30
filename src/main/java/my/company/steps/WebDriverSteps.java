@@ -27,7 +27,7 @@ public class WebDriverSteps {
         driver.get("http://ya.ru");
     }
 
-    @Step
+    @Step("Search by \"{0}\"")
     public void search(String text) {
         driver.findElement(By.id("text")).sendKeys(text);
         driver.findElement(By.className("b-form-button__input")).submit();
