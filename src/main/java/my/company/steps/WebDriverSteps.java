@@ -4,9 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import ru.yandex.qatools.allure.annotations.Attach;
+import ru.yandex.qatools.allure.annotations.Attachment;
 import ru.yandex.qatools.allure.annotations.Step;
-import ru.yandex.qatools.allure.model.AttachmentType;
 
 import java.io.File;
 
@@ -33,7 +32,7 @@ public class WebDriverSteps {
         driver.findElement(By.className("b-form-button__input")).submit();
     }
 
-    @Attach(type = AttachmentType.PNG)
+    @Attachment(type = "image/png")
     public File makeScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
     }
