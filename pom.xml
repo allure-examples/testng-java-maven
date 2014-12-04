@@ -18,8 +18,8 @@
         <compiler.version>1.7</compiler.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <allure.version>1.4.0</allure.version>
-        <aspectj.version>1.7.4</aspectj.version>
+        <allure.version>1.4.4</allure.version>
+        <aspectj.version>1.8.3</aspectj.version>
     </properties>
 
     <name>Allure TestNG Example</name>
@@ -58,6 +58,12 @@
             <groupId>ru.yandex.qatools.allure</groupId>
             <artifactId>allure-testng-adaptor</artifactId>
             <version>${allure.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!--Web Driver-->

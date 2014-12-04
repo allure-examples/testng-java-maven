@@ -43,7 +43,7 @@ public class SimpleTest {
 
     @Test
     public void failedTest() {
-        fail();
+        fail("This test should be failed");
     }
 
     @Test(dependsOnMethods = "failedTest")
