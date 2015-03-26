@@ -66,6 +66,18 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
+            <!--Needed only to show reports locally. Run jetty:run and
+            open localhost:8080 to show the report-->
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.2.10.v20150310</version>
+                <configuration>
+                    <webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin
+                    </webAppSourceDirectory>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
