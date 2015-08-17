@@ -15,6 +15,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static java.lang.String.format;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.fail;
@@ -97,11 +98,25 @@ public class SimpleTest {
         saveCsvAttachment();
     }
 
+    @Test
+    public void svgAttachmentTest() throws Exception {
+        saveSvgAttachment();
+    }
+
     @Attachment(value = "Sample csv attachment", type = "text/csv")
     public byte[] saveCsvAttachment() throws URISyntaxException, IOException {
-        URL resource = getClass().getClassLoader().getResource("sample.csv");
+        return getSampleFile("sample.csv");
+    }
+
+    @Attachment(value = "Sample svg attachment", type = "image/svg+xml")
+    public byte[] saveSvgAttachment() throws URISyntaxException, IOException {
+        return getSampleFile("sample.svg");
+    }
+
+    private byte[] getSampleFile(String fileName) throws IOException, URISyntaxException {
+        URL resource = getClass().getClassLoader().getResource(fileName);
         if (resource == null) {
-            fail("Couldn't find resource 'sample.csv'");
+            fail(format("Couldn't find resource '%s'", fileName));
         }
         return Files.readAllBytes(Paths.get(resource.toURI()));
     }
