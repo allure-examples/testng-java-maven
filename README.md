@@ -11,12 +11,12 @@ To run tests you need to install [maven][maven], [git][git] and [phantomjs][phan
 To generate Allure Report you should perform following steps:
 
 ```bash
-$ git clone git@github.com:allure-examples/allure-testng-example.git
+$ git clone git@github.com:ehborisov/allure-testng-example.git
 $ mvn clean test
 $ mvn site
 ```
 
-To see a report, run `mvn jetty:run` and open `http://localhost:8080` in your browser
+To see a report, run `allure open target/site/allure-maven-plugin/`
 
 **NOTE: required maven version 3.1.1 or above**
 
