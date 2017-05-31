@@ -17,7 +17,7 @@ public class OnFailure extends TestListenerAdapter {
         createAttachment();
     }
 
-    @Attachment("Hi, I'm attachment in your testng listener")
+    @Attachment("Hi,        I'm attachment in your testng listener")
     public String createAttachment() {
         return "My own attachment body!";
     }
