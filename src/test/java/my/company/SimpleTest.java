@@ -1,13 +1,11 @@
 package my.company;
 
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Issue;
+import io.qameta.allure.Step;
+import io.qameta.allure.TmsLink;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ru.yandex.qatools.allure.annotations.Attachment;
-import ru.yandex.qatools.allure.annotations.Issue;
-import ru.yandex.qatools.allure.annotations.Issues;
-import ru.yandex.qatools.allure.annotations.Parameter;
-import ru.yandex.qatools.allure.annotations.Step;
-import ru.yandex.qatools.allure.annotations.TestCaseId;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -73,9 +71,11 @@ public class SimpleTest {
     }
 
     @Test(dataProvider = "dataProvider")
-    @Issues({@Issue("ALR-123"), @Issue("ALR-456"), @Issue("ALR-789")})
-    @TestCaseId("TMS-123")
-    public void parametrizedTest(@Parameter int parameter) {
+    @Issue("ALR-123")
+    @Issue("ALR-456")
+    @Issue("ALR-789")
+    @TmsLink("TMS-123")
+    public void parametrizedTest(int parameter) {
         assertThat(parameter, is(2));
     }
 
@@ -87,9 +87,11 @@ public class SimpleTest {
     }
 
     @Test(dataProvider = "anotherDataProvider")
-    @Issues({@Issue("ALR-123"), @Issue("ALR-456"), @Issue("ALR-789")})
-    @TestCaseId("TMS-123")
-    public void parametrizedTest(@Parameter String parameter1, @Parameter("Third Parameter Name") int parameter2, int parameters3) {
+    @Issue("ALR-123")
+    @Issue("ALR-456")
+    @Issue("ALR-789")
+    @TmsLink("TMS-123")
+    public void parametrizedTest(String parameter1, int parameter2, int parameters3) {
         assertThat(parameter2, is(2));
     }
 

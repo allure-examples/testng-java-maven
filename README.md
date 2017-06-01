@@ -1,29 +1,24 @@
-[phantomjs]: http://phantomjs.org/download.html
-[maven]: http://maven.apache.org/
-[git]: http://git-scm.com/
 
 ## Allure TestNG Example
 
 ### Getting Started
 
-To run tests you need to install [maven][maven], [git][git] and [phantomjs][phantomjs].
-
 To generate Allure Report you should perform following steps:
 
 ```bash
 $ git clone git@github.com:allure-examples/allure-testng-example.git
-$ mvn clean test
-$ mvn site
+$ ./mvnw clean test site
 ```
 
-To see a report, run `mvn jetty:run` and open `http://localhost:8080` in your browser
+Report will be generated to `target/site/allure-maven-plugin` folder. To open the report you can use the following command:
 
-**NOTE: required maven version 3.1.1 or above**
+```bash
+$ ./mvnw io.qameta.allure:allure-maven:serve
+```
 
 ### More
 
-* [Documentation](https://github.com/allure-framework/allure-core/wiki)
-* [Issue Tracking](https://github.com/allure-framework/allure-core/issues?labels=&milestone=&page=1&state=open)
-* Mailing list: [allure@yandex-team.ru](mailto:allure@yandex-team.ru)
+* [Documentation](https://docs.qameta.io/allure/2.0/)
+* [Issue Tracking](https://github.com/allure-framework/allure2/issues?labels=&milestone=&page=1&state=open)
 * Gitter chat room: [https://gitter.im/allure-framework/allure-core](https://gitter.im/allure-framework/allure-core)
 * StackOverflow tag: [Allure](http://stackoverflow.com/questions/tagged/allure)
