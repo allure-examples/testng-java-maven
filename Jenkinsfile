@@ -8,8 +8,6 @@ pipeline {
         }
          stage('Report') {
                     steps {
-                        sh 'allure-commandline/build/install/allure/bin/allure generate ' +
-                                'allure-generator/test-data/demo --clean -o build/report-demo'
                         publishHTML([reportName  : 'Allure Report', reportDir: 'target/site/allure-maven-plugin', reportFiles: 'index.html',
                                      reportTitles: '', allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false])
                     }
