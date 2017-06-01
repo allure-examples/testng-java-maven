@@ -72,7 +72,7 @@ public class SimpleTest {
     }
 
     @Test(dataProvider = "dataProvider")
-    @Issues({@Issue("ALR-123"), @Issue("ALR-456"), @Issue("ALR-789")})
+    @Issues({@Issue("48"), @Issue("45"), @Issue("6")})
     @TmsLink("TMS-123")
     public void parametrizedTest(int parameter) {
         assertThat(parameter, is(2));
@@ -86,7 +86,7 @@ public class SimpleTest {
     }
 
     @Test(dataProvider = "anotherDataProvider")
-    @Issues({@Issue("ALR-123"), @Issue("ALR-456"), @Issue("ALR-789")})
+    @Issues({@Issue("48"), @Issue("45"), @Issue("6")})
     @TmsLink("TMS-123")
     public void parametrizedTest(String parameter1, int parameter2, int parameters3) {
         assertThat(parameter2, is(2));
