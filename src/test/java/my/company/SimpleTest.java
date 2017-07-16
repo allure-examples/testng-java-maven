@@ -95,7 +95,7 @@ public class SimpleTest {
         assertThat(parameter2, is(2));
     }
 
-    @Test
+    @Test(description = "CSV аттачмент")
     public void csvAttachmentTest() throws Exception {
         saveCsvAttachment();
     }
