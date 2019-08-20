@@ -16,6 +16,12 @@ Report will be generated to `target/site/allure-maven-plugin` folder. To open th
 $ ./mvnw io.qameta.allure:allure-maven:serve
 ```
 
+There is another way of generating the report. The generated report can be opened here "target/site/allure-maven-plugin/index.html". The command to generate the report is the following:
+
+```bash
+$ ./mvnw io.qameta.allure:allure-maven:report
+```
+
 ### More
 
 * [Documentation](https://docs.qameta.io/allure/2.0/)
