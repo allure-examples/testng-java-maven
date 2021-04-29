@@ -1,0 +1,14 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: io.qameta.allure:allure-testng
+    versions:
+    - 2.13.8
+  - dependency-name: org.testng:testng
+    versions:
+    - 7.3.0
