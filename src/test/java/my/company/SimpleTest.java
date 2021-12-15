@@ -10,7 +10,12 @@ import static io.qameta.allure.Allure.step;
 public class SimpleTest {
 
     @Test
-    public void simpleTest() {
+    public void simpleTestOne() {
+        step("step 1");
+        step("step 2");
+    }
+    @Test
+    public void simpleTestTwo() {
         step("step 1");
         step("step 2");
     }
