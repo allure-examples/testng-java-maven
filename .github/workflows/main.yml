@@ -1,26 +1,43 @@
-name: Run test
+name: allure-report
 
 on:
-  workflow_dispatch
+  release:
+    types:
+      - created
+  push:
+    branches-ignore:
+      - '!master'
 
 jobs:
-  test:
-
+  allure:
+    name: Generate Allure Report
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 11
-      uses: actions/setup-java@v3
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-        cache: maven
-    - name: Run tests
-      run: allure:serve
-    - name: Upload result
-      uses: actions/upload-artifact@v3
-      if: success() || failure()
-      with:
-        name: test-results
-        path: target/surefire-reports/testng-results.xml
+      - uses: actions/checkout@v2
+
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Allure Report action from marketplace
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        #id: allure-report
+        with:
+          allure_results: allure-results
+          #gh_pages: gh-pages
+          #allure_report: allure-report
+          allure_history: allure-history
+          keep_reports: 20
+
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
