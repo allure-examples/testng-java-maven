@@ -37,6 +37,7 @@
             <version>${junit-jupiter-engine.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- Allure -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
