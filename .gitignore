@@ -1,13 +1,34 @@
+#Allure
 .allure
+/*/allure-results/
 
-#IDEA Files
-.idea
+#Maven
 target
+
+#Gradle
+.gradle
+build
+.gradletasknamecache
+
+#IDEA
+.idea/*
 *.iml
 *.ipr
 
-#Eclipse files
+#Eclipse
 *.settings
 *.classpath
 *.project
 *.pydevproject
+
+#Netbeans
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+#Mac OS
+.DS_Store

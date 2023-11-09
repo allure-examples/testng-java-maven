@@ -1,0 +1,49 @@
+name: Allure Report
+run-name: $ is creating Allure report 🚀
+
+on:
+  push:
+    branches-ignore:
+      - '!main'
+
+jobs:
+  autotests:
+    name: Run tests and generate Allure Report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4.1.1
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v3.13.0
+        with:
+          java-version: 21
+          cache: 'maven'
+          distribution: 'zulu'
+
+      - name: Run Test
+        run: ./mvnw verify
+        continue-on-error: true
+
+      - name: Setup Allure History
+        uses: actions/checkout@v4.1.1
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Generate Allure Report
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          allure_results: target/allure-results
+          allure_history: allure-history
+
+      - name: Publish Allure Report
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3.9.3
+        with:
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
