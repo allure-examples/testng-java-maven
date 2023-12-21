@@ -1,5 +1,5 @@
 name: Allure Report
-run-name: $ is creating Allure report 🚀
+run-name: ${{ github.actor }} is creating Allure report 🚀
 
 on:
   push:
@@ -44,6 +44,6 @@ jobs:
         if: always()
         uses: peaceiris/actions-gh-pages@v3.9.3
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
