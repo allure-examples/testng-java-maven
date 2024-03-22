@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4.1.1
 
       - name: Set up Java 21
-        uses: actions/setup-java@v4.0.0
+        uses: actions/setup-java@v4.1.0
         with:
           java-version: 21
           cache: 'maven'
@@ -34,7 +34,7 @@ jobs:
           path: gh-pages
 
       - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@v1.7
+        uses: simple-elf/allure-report-action@v1.8
         if: always()
         with:
           allure_results: target/allure-results
